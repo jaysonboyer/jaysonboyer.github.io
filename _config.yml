@@ -1,0 +1,27 @@
+title: Jayson Boyer
+description: >-
+  Principal software architect. Distributed systems, federated GraphQL,
+  and production AI agents.
+url: "https://jaysonboyer.github.io"
+github_username: jaysonboyer
+minima:
+  social_links:
+    github: jaysonboyer
+    linkedin: jaysonboyer
+
+# Theme is pulled from GitHub at build time. Override any of its files by
+# putting a same-named file here (_layouts/, _includes/, _sass/, assets/).
+remote_theme: jekyll/minima@v2.5.2
+
+plugins:
+  - jekyll-remote-theme
+  - jekyll-feed
+  - jekyll-seo-tag
+
+header_pages:
+  - resume.md
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
