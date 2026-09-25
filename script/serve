@@ -1,0 +1,14 @@
+#!/bin/sh
+# Preview the site at http://localhost:4000 with live reload.
+# Runs in Docker because macOS system Ruby (2.6) is too old for github-pages.
+# Gems are cached in the `jekyll-bundle` volume, so only the first run is slow.
+set -e
+cd "$(dirname "$0")/.."
+exec docker run --rm -it \
+  -v "$PWD":/srv/jekyll \
+  -v jekyll-bundle:/usr/local/bundle \
+  -w /srv/jekyll \
+  -p 4000:4000 -p 35729:35729 \
+  -e PAGES_REPO_NWO=jaysonboyer/jaysonboyer.github.io \
+  ruby:3.3 \
+  sh -c 'bundle install --quiet && bundle exec jekyll serve --host 0.0.0.0 --livereload'
