@@ -1,27 +1,32 @@
 title: Jayson Boyer
+author: Jayson Boyer
 description: >-
   Principal software architect. Distributed systems, federated GraphQL,
   and production AI agents.
 url: "https://jaysonboyer.github.io"
 github_username: jaysonboyer
-minima:
-  social_links:
-    github: jaysonboyer
-    linkedin: jaysonboyer
 
-# Theme is pulled from GitHub at build time. Override any of its files by
-# putting a same-named file here (_layouts/, _includes/, _sass/, assets/).
-remote_theme: jekyll/minima@v2.5.2
+# Theme is vendored into this repo (a copy of pages-themes/hacker, CC0 — see
+# THEME-LICENSE). Edit _layouts/, _includes/, _sass/ and assets/ directly.
+# No `theme:` or `remote_theme:` key on purpose.
+
+nav:
+  - title: Home
+    url: /
+  - title: Resume
+    url: /resume/
+  - title: GitHub
+    url: https://github.com/jaysonboyer
+  - title: LinkedIn
+    url: https://linkedin.com/in/jaysonboyer/
 
 plugins:
-  - jekyll-remote-theme
   - jekyll-feed
   - jekyll-seo-tag
-
-header_pages:
-  - resume.md
 
 exclude:
   - Gemfile
   - Gemfile.lock
   - vendor
+  - README.md
+  - THEME-LICENSE
