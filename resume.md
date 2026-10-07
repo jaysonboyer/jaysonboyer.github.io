@@ -65,8 +65,8 @@ September 2023 – July 2026 · Remote
 
 **AI strategy and agents**
 
-- Led the AI strategy and implementation: a customer-facing agent on the
-  TrustRadius buyer site, built in Python on Google ADK, that summarized verified
+- Led the AI strategy and implementation: a customer-facing agent on the TrustRadius
+  B2B software review site, built in Python on Google ADK, that summarized verified
   reviews in real time to answer buyers' questions, with pricing benchmarks,
   feature analysis, and reviewer takeaways.
 - Wrote the MCP server in NestJS/TypeScript that exposed platform data and tools
