@@ -1,40 +1,65 @@
 ---
 ---
 
-@import 'jekyll-theme-hacker';
+/* Plain, readable page. No theme: everything is here. */
 
-/* ---- Local overrides. Everything above this line is stock hacker theme. ---- */
-
-#site-nav .btn {
-  margin: 0 8px 8px 0;
+:root {
+  --text: #1c1c1c;
+  --muted: #6b6b6b;
+  --link: #1a5fb4;
+  --rule: #e4e4e4;
+  --bg: #ffffff;
 }
 
-.post-list {
-  list-style: none;
-  padding: 0;
-
-  li {
-    margin-bottom: 8px;
-  }
-
-  small {
-    color: #666;
-    margin-left: 10px;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #e6e6e6;
+    --muted: #9a9a9a;
+    --link: #8ab4f8;
+    --rule: #333333;
+    --bg: #141414;
   }
 }
 
-/* Resume runs long; tighten the job entries. */
-.resume {
-  h3 {
-    margin-bottom: 0;
-  }
+html { font-size: 17px; }
 
-  h3 + p {
-    color: #999;
-    margin: 0 0 10px;
-  }
-
-  ul {
-    margin-bottom: 24px;
-  }
+body {
+  margin: 0;
+  padding: 0 16px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
 }
+
+.container { max-width: 42rem; margin: 0 auto; }
+
+header { padding: 2.5rem 0 1.5rem; border-bottom: 1px solid var(--rule); }
+header h1 { font-size: 1.6rem; margin: 0; }
+header h2 { font-size: 1rem; font-weight: 400; color: var(--muted); margin: 0.25rem 0 1rem; }
+#a-title { color: inherit; text-decoration: none; }
+#site-nav a { margin-right: 1.25rem; }
+
+#main_content { padding: 2rem 0 4rem; }
+
+a { color: var(--link); }
+a:hover { text-decoration-thickness: 2px; }
+
+h1, h2, h3 { line-height: 1.25; margin: 2rem 0 0.5rem; }
+h1 { font-size: 1.8rem; }
+h2 { font-size: 1.3rem; }
+#main_content h2 { padding-bottom: 0.25rem; border-bottom: 1px solid var(--rule); }
+h3 { font-size: 1.05rem; }
+p, ul, ol { margin: 0 0 1rem; }
+li { margin-bottom: 0.35rem; }
+small { color: var(--muted); }
+code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.9em; }
+pre { padding: 1rem; overflow-x: auto; border: 1px solid var(--rule); border-radius: 4px; }
+
+.post-list { list-style: none; padding: 0; }
+.post-list small { margin-left: 0.75rem; }
+
+/* Resume: tight job headers, dates in muted text under each. */
+.resume h3 { margin-bottom: 0; }
+.resume h3 + p { color: var(--muted); margin: 0 0 0.5rem; }
+.resume ul { margin-bottom: 1.5rem; }
