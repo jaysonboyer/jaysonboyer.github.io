@@ -19,6 +19,8 @@ Jekyll site served by GitHub Pages from `main`. A push to `main` is a publish: G
 
 Never commit `_site/`, `.jekyll-cache/` or `Gemfile.lock`; they are gitignored.
 
+The Pages build renders every `.md` file as a page, even without frontmatter, and the local Docker build does not. Any markdown that is not a page (this file, README) goes in the `exclude:` list in `_config.yml`, or Liquid in it breaks the live build.
+
 ## What lives where
 
 | Path | Role |
