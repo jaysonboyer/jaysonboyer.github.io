@@ -25,11 +25,10 @@ The Pages build renders every `.md` file as a page, even without frontmatter, an
 
 | Path | Role |
 |---|---|
-| `index.md` | home page copy |
-| `resume.md` | public general resume at `/resume/`. Its source of truth is `_shared/master-library.md` in the `resumes` repo; edit there first, then pull bullets in here. From the `resumes` repo, `npm run publish-site` commits and pushes only this file. |
+| `resume.md` | public general resume, served as the home page `/` (`/resume/` redirects there). Its source of truth is `_shared/master-library.md` in the `resumes` repo; edit there first, then pull bullets in here. From the `resumes` repo, `npm run publish-site` commits and pushes only this file. |
 | `_drafts/` | unpublished posts. Jekyll ignores this folder. |
 | `_posts/` | published posts, named `YYYY-MM-DD-slug.md`. Currently empty on purpose. |
-| `_layouts/home.html` | the post list is wrapped in `{% comment %}` until there is a real post. Remove the two comment lines when publishing the first one. |
+| `_layouts/home.html` | unused until blogging starts; then recreate `index.md` with `layout: home`, move the resume back to `permalink: /resume/`, and restore the Home nav item. The post list is wrapped in `{% comment %}` until there is a real post. Remove the two comment lines when publishing the first one. |
 | `_layouts/`, `_includes/`, `_sass/`, `assets/` | the vendored hacker theme (CC0, see `THEME-LICENSE`). Edit directly; there is no `theme:` key. |
 | `_config.yml` | title, description, nav links |
 

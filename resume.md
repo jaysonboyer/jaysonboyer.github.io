@@ -1,7 +1,8 @@
 ---
 layout: page
 title: Master Resume
-permalink: /resume/
+permalink: /
+redirect_from: /resume/
 ---
 
 <div class="resume" markdown="1">

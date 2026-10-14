@@ -11,10 +11,8 @@ github_username: jaysonboyer
 # No `theme:` or `remote_theme:` key on purpose.
 
 nav:
-  - title: Home
-    url: /
   - title: Master Resume
-    url: /resume/
+    url: /
   - title: GitHub
     url: https://github.com/jaysonboyer
   - title: LinkedIn
@@ -23,6 +21,7 @@ nav:
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-redirect-from
 
 exclude:
   - Gemfile
