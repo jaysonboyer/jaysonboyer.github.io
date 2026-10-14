@@ -15,8 +15,8 @@ permalink: /resume/
 Principal software architect with 20+ years building consumer-scale platforms and
 marketplaces, and 15+ years designing and operating large-scale distributed
 systems, 10+ of them cloud-native. Recent work is production AI: a customer-facing
-agent and the MCP server behind it, an adversarial eval harness, a context
-management system for coding agents, and the tracing and cost instrumentation
+agent and the MCP server behind it, a context management system for coding
+agents with the adversarial eval harness that tuned it, and the tracing and cost instrumentation
 that keep all of it honest. Equally at home in federated GraphQL design,
 Kubernetes capacity work, and a jobs-to-be-done interview. Combines backend and
 scalability depth with a focus on user behavior, using experimentation and
@@ -32,11 +32,12 @@ hybrid retrieval, prompt and context engineering, adversarial eval harnesses,
 agent tracing and cost instrumentation, Cline, opencode, aider
 
 **Backend & API:** Node.js, NestJS, Express, Apollo Federation, REST, domain-driven
-design, onion architecture, Prisma, TypeORM, Spring MVC, Spring Boot, C#/.NET,
+design, onion architecture, Prisma, TypeORM, Spring MVC, Spring Boot, Spring Data JPA,
+C#/.NET,
 BullMQ/Kue
 
 **Frontend:** React, Next.js (SSR), React Native, React Router loaders and actions,
-Web Components (LitElement/lit-html), MobX, Radix, GraphQL Codegen,
+Web Components (LitElement/lit-html), Redux, MobX, Radix, GraphQL Codegen,
 micro-frontends (Feature Hub), AngularJS, WCAG accessibility
 
 **Data & Search:** Postgres, MongoDB, Redis, Typesense, MySQL, Oracle PL/SQL,
@@ -51,7 +52,7 @@ Cloud Logging, Opsgenie on-call, runbooks, postmortems
 **Identity & Security:** Auth0/Okta, OAuth, JWT, OIDC, OWASP, SOC 2 remediation,
 HIPAA/PHI handling
 
-**Experimentation & Analytics:** GrowthBook, CloudBees Feature Management, Google
+**Experimentation & Analytics:** GrowthBook (with Google Analytics and BigQuery), CloudBees Feature Management, Google
 Analytics, Google Tag Manager, Google Ad Manager, Conductor, SEO split testing
 
 **Testing:** Jest, Mocha, JUnit, Cypress, Playwright, Nightwatch, Selenium,
@@ -61,7 +62,7 @@ Cucumber
 
 ### HG Insights (formerly TrustRadius) — Principal Engineer
 
-September 2023 – July 2026 · Remote
+September 2023 – July 2026 · Remote · Reported to the CTO
 
 **AI strategy and agents**
 
@@ -81,7 +82,7 @@ September 2023 – July 2026 · Remote
 
 **Agent evaluation and production operations**
 
-- Built an adversarial eval harness for agent behavior: hand-authored regression
+- Built an adversarial eval harness for the coding-agent context system: hand-authored regression
   cases with pre-declared pass/fail markers, control arms that discard cases the
   model passes anyway, and ground truth read from disk state (SHA-256 diffs,
   behavioral code markers) rather than model self-report. Used it to isolate
@@ -154,6 +155,8 @@ September 2023 – July 2026 · Remote
   plus Conductor prompt-tracking data into BigQuery, surfaced in Looker; collaborated
   on the warehouse schema and maintained the visit, AI-visibility, and review
   pipelines behind the company's BI.
+- Built the custom metrics and Google Analytics and BigQuery integrations behind
+  GrowthBook's experiment analytics.
 - Expanded the experimentation program to SEO split testing with GrowthBook;
   participated in jobs-to-be-done interviews with software buyers and interviewed
   content, moderation, and UGC teams to map their workflows, producing improved
@@ -185,7 +188,7 @@ September 2023 – July 2026 · Remote
 
 ### b.well Connected Health — Principal Engineer / Principal Architect
 
-January 2021 – September 2023 · Seattle, WA
+January 2021 – September 2023 · Seattle, WA · Reported to the VP of Platform Engineering
 
 - Co-architected an embeddable architecture, Web Components plus React Native,
   that let b.well ship its products into third-party web portals and into iOS and
@@ -201,8 +204,10 @@ January 2021 – September 2023 · Seattle, WA
 - Directed GraphQL/Apollo Federation strategy and domain-driven design for
   configuration services; authored the ADRs; routed micro-frontends with React
   Router loaders and actions and typed the UI with GraphQL Codegen.
-- Consumed FHIR resources for interoperability with health systems, EHRs, and
-  partner platforms.
+- Consumed FHIR (HL7 R4) resources for interoperability with health systems,
+  EHRs, and partner platforms; contributed to b.well's open-source FHIR server
+  (Node.js, MongoDB), making its GraphQL API an Apollo Federation subgraph on the
+  supergraph, a change still in place on `main` three years on.
 - Founded the UI component library and innersource program with weekly
   check-ins; led WCAG accessibility across every client surface.
 - Spearheaded unit-test automation and GitHub Actions CI/CD, including custom
@@ -311,7 +316,7 @@ December 1998 – August 2003 · Seattle, WA
 
 ## Education
 
-**University of Nebraska at Omaha** — B.S.
+**University of Nebraska at Omaha** — Bachelor of Science
 
 **IDEO U**, All-Access Pass — *Bringing AI to the Design Thinking Process* (in progress)
 
