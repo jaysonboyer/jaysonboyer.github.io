@@ -246,7 +246,7 @@ March 2010 – April 2020 · Bellevue, WA
   ran on.
 - Contributed to the frontend redesign into a PWA on React, MobX, and TypeScript.
 - Co-led an internal developer education program teaching structured web
-  development to interns and junior engineers.
+  development to about 20 interns and junior engineers.
 - Drove automated testing practices (unit, BDD, UI); advocated WCAG and OWASP
   practices into development and review; served in the Opsgenie on-call rotation
   using Splunk for triage.
@@ -311,7 +311,7 @@ December 1998 – August 2003 · Seattle, WA
 
 ## Education
 
-**University of Nebraska at Omaha** — B.S., Biology
+**University of Nebraska at Omaha** — B.S.
 
 **IDEO U**, All-Access Pass — *Bringing AI to the Design Thinking Process* (in progress)
 
