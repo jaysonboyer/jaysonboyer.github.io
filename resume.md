@@ -305,6 +305,19 @@ December 1998 – August 2003 · Seattle, WA
 
 ## Personal Projects
 
+### [Werkmeister](https://werkmeister.io/) — open source (2026–present)
+
+- Built an orchestrator for developers stuck single-threaded: it runs many
+  tickets at once, each in an isolated workspace with its own git worktree,
+  generated Docker Compose services and routing. A ground-up rewrite of the
+  developer sandbox HG Insights engineers use.
+- Gave each work type its own staged workflow (bug: reproduce, fix, deploy,
+  verify), with agents working autonomously and stopping only at
+  human-judgment gates.
+- Shipped a TypeScript monorepo of CLI, core library, dashboard, MCP server,
+  VS Code extension and Claude Code plugin, published to npm with Changesets
+  and OIDC trusted publishing. 985 commits since July 2026.
+
 ### Local agentic methodology coach (2026)
 
 - Built a fully local RAG knowledge base over ArcadeDB on Apple Silicon: an
