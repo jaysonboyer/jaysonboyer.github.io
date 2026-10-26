@@ -28,7 +28,7 @@ The Pages build renders every `.md` file as a page, even without frontmatter, an
 | `resume.md` | public general resume, served as the home page `/` (`/resume/` redirects there). Its source of truth is `_shared/master-library.md` in the `resumes` repo; edit there first, then pull bullets in here. From the `resumes` repo, `npm run publish-site` commits and pushes only this file. |
 | `_drafts/` | unpublished posts. Jekyll ignores this folder. |
 | `_posts/` | published posts, named `YYYY-MM-DD-slug.md`. Currently empty on purpose. |
-| `_layouts/home.html` | unused until blogging starts; then recreate `index.md` with `layout: home`, move the resume back to `permalink: /resume/`, and restore the Home nav item. The post list is wrapped in `{% comment %}` until there is a real post. Remove the two comment lines when publishing the first one. |
+| `blog.md` | the post list, served at `/blog/` via `_layouts/home.html`. |
 | `_layouts/`, `_includes/`, `_sass/`, `assets/` | the vendored hacker theme (CC0, see `THEME-LICENSE`). Edit directly; there is no `theme:` key. |
 | `_config.yml` | title, description, nav links |
 
@@ -36,8 +36,7 @@ The Pages build renders every `.md` file as a page, even without frontmatter, an
 
 1. Write it in `_drafts/`.
 2. Move it to `_posts/YYYY-MM-DD-slug.md` with that date in its frontmatter.
-3. Un-comment the post list in `_layouts/home.html`.
-4. Follow "When asked to publish" above; `script/serve` now shows the post on the home page.
+3. Follow "When asked to publish" above; `script/serve` shows the post at `/blog/`.
 
 ## Rules
 
