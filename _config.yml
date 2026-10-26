@@ -11,8 +11,10 @@ github_username: jaysonboyer
 # No `theme:` or `remote_theme:` key on purpose.
 
 nav:
-  - title: Master Resume
+  - title: Home
     url: /
+  - title: Master Resume
+    url: /resume/
   - title: Werkmeister
     url: https://werkmeister.io/
   - title: GitHub
