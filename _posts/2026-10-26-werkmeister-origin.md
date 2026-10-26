@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How Werkmeister started"
-date: 2026-10-26 09:00:00 -0700
+date: 2026-10-26 00:00:44 -0700
 categories: werkmeister
 permalink: /blog/werkmeister-origin/
 ---
