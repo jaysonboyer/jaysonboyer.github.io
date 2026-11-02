@@ -4,6 +4,7 @@ title: "How Werkmeister started"
 date: 2026-10-26 00:00:44 -0700
 categories: werkmeister
 permalink: /blog/werkmeister-origin/
+description: "A Pune office, a ten-container dev setup, and the one-environment sandbox that grew into Werkmeister."
 ---
 
 It started with a time difference.

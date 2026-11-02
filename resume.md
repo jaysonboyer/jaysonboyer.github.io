@@ -47,8 +47,8 @@ BigQuery, Looker, Airflow, Kafka, Spark, Hadoop, ArcadeDB (graph + vector)
 **Infrastructure:** Kubernetes on GKE, Helm, Docker Compose, GitHub Actions,
 Cloudflare, GCP, AWS (S3, EC2, IAM), Azure, Terraform (limited), JMeter
 
-**Observability & Operations:** OpenTelemetry, DataDog, New Relic, Splunk, Google
-Cloud Logging, Opsgenie on-call, runbooks, postmortems
+**Observability & Operations:** OpenTelemetry, DataDog, New Relic, Sentry, Splunk,
+Google Cloud Logging, Opsgenie on-call, runbooks, postmortems
 
 **Identity & Security:** Auth0/Okta, OAuth, JWT, OIDC, OWASP, SOC 2 remediation,
 HIPAA/PHI handling
@@ -168,11 +168,16 @@ September 2023 – July 2026 · Remote · Reported to the CTO
 - Contributed to the migration off home-grown auth onto Auth0 for OAuth/JWT across
   four applications and two subdomains with no disruption to signed-in users;
   integrated LinkedIn as an OIDC identity provider.
-- Served in the Opsgenie on-call rotation; built outage runbooks; took part in
-  weekly postmortems with a root cause analysis required from the primary on-call.
+- Served in the Opsgenie on-call rotation; built outage runbooks; took turns
+  running weekly postmortems with a root cause analysis required from the primary
+  on-call; followed fixes with logging and an alert that fires if the issue recurs.
 - Introduced merge-blocking CI gates (SonarQube, security scans, unit tests, lint
   and format checks, end-to-end suites), keeping a manual test step only where a
   test couldn't be automated; set up the same gates at b.well and Orion.
+- Ramped new features, pages and data sources to production by percentage with
+  GrowthBook wherever load was uncertain, and taught developers to use flags as
+  kill switches and percentage ramps to shrink the blast radius of production
+  issues; ramped the same way at b.well (CloudBees) and Expedia.
 - Shared remediation of SOC 2 and penetration-test findings; reviewed the Kue →
   BullMQ job-queue migration driven by a SOC 2 obligation.
 - Facilitated monthly architecture forums, weekly domain-driven design sessions,
@@ -310,9 +315,10 @@ December 1998 – August 2003 · Seattle, WA
 
 ### [Werkmeister](https://werkmeister.io/) — open source (2026–present)
 
-- Built an orchestrator for developers stuck single-threaded: it runs many
-  tickets at once, each in an isolated workspace with its own git worktree,
-  generated Docker Compose services and routing. A ground-up rewrite of the
+- Built an orchestrator for developers stuck single-threaded, and for solo
+  founders who want to ship with SDLC best practices like testing and CI gates:
+  it runs many tickets at once, each in an isolated workspace with its own git
+  worktree, generated Docker Compose services and routing. A ground-up rewrite of the
   developer sandbox HG Insights engineers use.
 - Gave each work type its own staged workflow (bug: reproduce, fix, deploy,
   verify), with agents working autonomously and stopping only at
