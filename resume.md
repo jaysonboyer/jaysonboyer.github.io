@@ -170,6 +170,9 @@ September 2023 – July 2026 · Remote · Reported to the CTO
   integrated LinkedIn as an OIDC identity provider.
 - Served in the Opsgenie on-call rotation; built outage runbooks; took part in
   weekly postmortems with a root cause analysis required from the primary on-call.
+- Introduced merge-blocking CI gates (SonarQube, security scans, unit tests, lint
+  and format checks, end-to-end suites), keeping a manual test step only where a
+  test couldn't be automated; set up the same gates at b.well and Orion.
 - Shared remediation of SOC 2 and penetration-test findings; reviewed the Kue →
   BullMQ job-queue migration driven by a SOC 2 obligation.
 - Facilitated monthly architecture forums, weekly domain-driven design sessions,
