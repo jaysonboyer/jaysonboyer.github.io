@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Master Resume
+title: Resume
 permalink: /
 redirect_from: /resume/
 ---

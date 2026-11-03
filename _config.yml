@@ -11,7 +11,7 @@ github_username: jaysonboyer
 # No `theme:` or `remote_theme:` key on purpose.
 
 nav:
-  - title: Master Resume
+  - title: Resume
     url: /
   - title: Blog
     url: /blog/
