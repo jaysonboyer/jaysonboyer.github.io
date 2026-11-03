@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Resume
 permalink: /
 redirect_from: /resume/
@@ -17,10 +17,10 @@ Principal software architect with 20+ years building consumer-scale platforms an
 marketplaces, and 15+ years designing and operating large-scale distributed
 systems, 10+ of them cloud-native. Recent work is production AI: a customer-facing
 agent and the MCP server behind it, a context management system for coding
-agents with the adversarial eval harness that tuned it, and the tracing and cost instrumentation
-that keep all of it honest. Equally at home in federated GraphQL design,
-Kubernetes capacity work, and a jobs-to-be-done interview. Combines backend and
-scalability depth with a focus on user behavior, using experimentation and
+agents, and the adversarial eval harness and cost instrumentation that tuned and
+tracked them. Before that, frontend architecture and performance on large React
+sites, federated GraphQL design, and Kubernetes capacity work. Combines backend
+and scalability depth with a focus on user behavior, using experimentation and
 analytics to drive product outcomes.
 
 ## Technical Skills
@@ -38,8 +38,12 @@ C#/.NET,
 BullMQ/Kue
 
 **Frontend:** React, Next.js (SSR), React Native, React Router loaders and actions,
-Web Components (LitElement/lit-html), Redux, MobX, Radix, GraphQL Codegen,
+Web Components (LitElement/lit-html), Apollo Client, Redux, MobX, Radix, GraphQL Codegen,
 micro-frontends (Feature Hub), AngularJS, WCAG accessibility
+
+**Build & Delivery:** Webpack (including custom plugins), Rollup/tsup (ESM and
+CommonJS), code splitting (next/dynamic, React.lazy), Module Federation, bundle
+analysis, React Profiler
 
 **Data & Search:** Postgres, MongoDB, Redis, Typesense, MySQL, Oracle PL/SQL,
 BigQuery, Looker, Airflow, Kafka, Spark, Hadoop, ArcadeDB (graph + vector)
@@ -65,7 +69,7 @@ Cucumber
 
 September 2023 – July 2026 · Remote · Reported to the CTO
 
-**AI strategy and agents**
+#### AI strategy and agents
 
 - Led the AI strategy and implementation: a customer-facing agent on the TrustRadius
   B2B software review site, built in Python on Google ADK, that summarized verified
@@ -81,14 +85,14 @@ September 2023 – July 2026 · Remote · Reported to the CTO
 - Wrote the prompts for and managed the automated code-review agents, reviewing
   every change for security, maintainability, and correctness.
 
-**Agent evaluation and production operations**
+#### Agent evaluation and production operations
 
 - Built an adversarial eval harness for the coding-agent context system: hand-authored regression
   cases with pre-declared pass/fail markers, control arms that discard cases the
   model passes anyway, and ground truth read from disk state (SHA-256 diffs,
-  behavioral code markers) rather than model self-report. Used it to isolate
-  which half of a two-part fix carried the effect (0/3 → 3/3) and dropped the
-  half that did not.
+  behavioral code markers) instead of the model's own report. Used it to find
+  which half of a two-part fix took three failing cases to passing, and dropped
+  the other half.
 - Instrumented agent workflows with tracing and structured logging on a logging
   library that enforced standards across services; built an operations dashboard
   for token consumption and inference cost per session, project, and model, with
@@ -97,7 +101,7 @@ September 2023 – July 2026 · Remote · Reported to the CTO
   applied least-privilege credentials and tool scopes with audit logging of agent
   actions.
 
-**Context engineering for coding agents**
+#### Context engineering for coding agents
 
 - Built a context management system for development teams working with AI coding
   agents: acceptance criteria extracted from Jira tickets, an ephemeral isolated
@@ -108,27 +112,29 @@ September 2023 – July 2026 · Remote · Reported to the CTO
   phase that structurally cannot edit source, findings persisted as durable notes,
   and open questions resolved before implementation begins.
 - Designed a just-in-time context system gated on phase, domain, service presence,
-  and per-subagent tool allowlists, carrying a compiled routing table rather than
-  the standards themselves. Deterministic phase-entry gating measured 15/15
-  against 0/16 for model-side matching; with the right context, Haiku 4.5 applied
-  9/9 standards against 0/9 unloaded.
+  and per-subagent tool allowlists, which carries a compiled routing table instead
+  of the standards themselves. Deterministic phase-entry gating loaded the right
+  standard in 15 of 15 trials where letting the model decide loaded it in 0 of 16.
+  With the right context loaded, Haiku 4.5 applied all nine standards under test;
+  unloaded, it applied none.
 - Built the durable notes ledger that serves as agent memory across sessions:
-  typed notes with an open → superseded → graduated lifecycle, re-injected at
+  typed notes with an open, superseded, graduated lifecycle, re-injected at
   session start including after compaction, with a graduation path into a
   versioned standards tree.
 
-**Platform resilience and scalability**
+#### Platform resilience and scalability
 
 - Led JMeter load testing against the highest-traffic page types to absorb
   thundering-herd bot spikes from email campaigns; after tuning Helm autoscaling,
   MongoDB indexes, Redis caching, edge caching, and circuit breakers, the platform
   absorbed 17× normal traffic. MongoDB request capacity rose 10×.
-- Tuned Postgres and MongoDB queries behind every GraphQL subgraph, cutting the
-  worst page type from ~10s to under 4s average load.
+- The Next.js migration below, plus Postgres and MongoDB query tuning behind
+  every GraphQL subgraph, cut the worst page type, Product Comparison, from about
+  10s to under 4s average load.
 - Introduced Typesense as the search layer, moving query pressure off MongoDB;
   ran Airflow for ETL including the Typesense index builds.
 
-**Architecture and GraphQL**
+#### Architecture and GraphQL
 
 - Owned the decomposition plan for the legacy monolith into services federated
   behind one graph: personally extracted the Interview, Awards, and Vendor
@@ -138,20 +144,30 @@ September 2023 – July 2026 · Remote · Reported to the CTO
 - Refactored every extracted service into a strict onion architecture, REST and
   GraphQL as siblings over one service layer and one Redis cache; kept REST
   versioned and backward compatible throughout the migration.
-- Instrumented the graph with OpenTelemetry so cross-subgraph latency was
-  attributable rather than guessed.
-- Owned the Next.js SSR buyer site and the GraphQL layer beneath it, composed
-  from colocated query fragments typed with GraphQL Codegen on a Radix-based
+- Instrumented the graph with OpenTelemetry so cross-subgraph latency could be
+  attributed to the service that caused it.
+- Owned the GraphQL layer beneath the Next.js buyer site, composed from
+  colocated query fragments typed with GraphQL Codegen on a Radix-based
   component library; started the Product and Category APIs on Prisma over
   Postgres, later moved to TypeORM for hand-tuned SQL.
 - Authored ADRs for Apollo Federation, JMeter load testing, Web Components for
   micro-frontends, and experimentation strategy.
 
-**Web performance, SEO, and AI visibility**
+#### Frontend architecture, web performance, and AI visibility
 
-- Led the web performance strategy that eliminated all "Poor" mobile Core Web
-  Vitals (50% → 0%) and raised "Good" from 0% to 20%, measured against CrUX field
-  data rather than lab simulation.
+- Led the migration of the buyer site off a six-year-old stack of Pug templates
+  on Node/Express, with a partial React migration left unfinished, onto Next.js
+  with SSR. Owned the architecture, the migration plan, and the rollout across a
+  team of 10 to 15 engineers.
+- Led the web performance strategy that took mobile Core Web Vitals from 50%
+  "Poor" to 0% and from 0% "Good" to 20%, measured in CrUX field data from real
+  users. New features shipped dark and were checked in WebPageTest before flag-on.
+- Got there by cutting what the browser had to load and run: wrote a custom
+  Webpack plugin to find dead code, split bundles with next/dynamic and
+  React.lazy after trying Module Federation and dropping it when Vercel ended
+  support, and fixed SSR hydration mismatches and redundant renders found with
+  React Profiler.
+- Packaged shared library code with Rollup and tsup as ESM and CommonJS builds.
 - Built the AI-visibility pipeline for AEO/GEO end to end: Cloudflare crawler logs
   plus Conductor prompt-tracking data into BigQuery, surfaced in Looker; collaborated
   on the warehouse schema and maintained the visit, AI-visibility, and review
@@ -163,7 +179,7 @@ September 2023 – July 2026 · Remote · Reported to the CTO
   content, moderation, and UGC teams to map their workflows, producing improved
   moderation tooling, hybrid search, and AI content workflows.
 
-**Identity, reliability, and governance**
+#### Identity, reliability, and governance
 
 - Contributed to the migration off home-grown auth onto Auth0 for OAuth/JWT across
   four applications and two subdomains with no disruption to signed-in users;
@@ -178,13 +194,14 @@ September 2023 – July 2026 · Remote · Reported to the CTO
   GrowthBook wherever load was uncertain, and taught developers to use flags as
   kill switches and percentage ramps to shrink the blast radius of production
   issues; ramped the same way at b.well (CloudBees) and Expedia.
-- Shared remediation of SOC 2 and penetration-test findings; reviewed the Kue →
+- Released to production multiple times a day as each feature completed.
+- Shared remediation of SOC 2 and penetration-test findings; reviewed the Kue to
   BullMQ job-queue migration driven by a SOC 2 obligation.
 - Facilitated monthly architecture forums, weekly domain-driven design sessions,
   weekly innersource check-ins on the shared UI library, and group code-review
   sessions.
 
-**Developer experience**
+#### Developer experience
 
 - Engineered a multi-feature developer sandbox, first in Python and later a
   TypeScript CLI, on templated Docker Compose with a hybrid local/remote topology:
@@ -193,7 +210,6 @@ September 2023 – July 2026 · Remote · Reported to the CTO
 - Packaged the sandbox with skills connecting agents to Jira, GitHub, and Slack;
   partnered with Sales, Marketing, Support, and Research Ops to map workflows and
   trained non-engineering users on the AI tools delivered.
-- Released to production multiple times a day as each feature completed.
 
 ### b.well Connected Health — Principal Engineer / Principal Architect
 
@@ -204,7 +220,12 @@ January 2021 – September 2023 · Seattle, WA · Reported to the VP of Platform
   Android host apps from a single codebase, and composed them as micro-frontends
   with Feature Hub.
 - UI lead architect for the b.well experience embedded in the Walgreens mobile
-  app.
+  app. Its first release shipped with bundle bloat that was only caught in
+  production, so added build-system checks to stop it recurring.
+- Packaged the shared UI and micro-frontend libraries with Rollup and tsup as ESM
+  and CommonJS builds, composed at runtime through Feature Hub.
+- Ran Apollo Client as the UI's normalized cache, with per-type freshness and
+  eviction policies for the types the defaults handled badly.
 - Secured embedded surfaces with OAuth and encrypted JWTs under HIPAA and PHI
   handling constraints.
 - Owned the foundational frontend and API decisions that became b.well's UI
@@ -258,7 +279,10 @@ March 2010 – April 2020 · Bellevue, WA
 - Developed the ad-metrics pipeline in Spark, Scala, and Hadoop on AWS over a
   Kafka ingestion stream landed in S3, including the EC2, IAM, and S3 setup it
   ran on.
-- Contributed to the frontend redesign into a PWA on React, MobX, and TypeScript.
+- Contributed to the frontend redesign into a PWA on React, MobX, and TypeScript,
+  including fixes for SSR hydration and serialization mismatches. Worked under
+  automated bundle size budgets that made the developer split a bundle once it
+  hit its threshold.
 - Co-led an internal developer education program teaching structured web
   development to about 20 interns and junior engineers.
 - Drove automated testing practices (unit, BDD, UI); advocated WCAG and OWASP
@@ -270,7 +294,7 @@ March 2010 – April 2020 · Bellevue, WA
 2011 – 2017 · Remote, alongside Expedia
 
 - Built, hosted, and maintained Drupal/LAMP websites for local small businesses,
-  including Drupal 6 → 7 migrations and MySQL administration.
+  including Drupal 6 to 7 migrations and MySQL administration.
 - Built one client application on Spring Boot with Spring Data JPA.
 
 ### Amdocs — Software Engineer
