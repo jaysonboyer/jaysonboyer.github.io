@@ -54,7 +54,7 @@ Cloudflare, GCP, AWS (S3, EC2, IAM), Azure, Terraform (limited), JMeter
 **Observability & Operations:** OpenTelemetry, DataDog, New Relic, Sentry, Splunk,
 Google Cloud Logging, Opsgenie on-call, runbooks, postmortems
 
-**Identity & Security:** Auth0/Okta, OAuth, JWT, OIDC, OWASP, SOC 2 remediation,
+**Identity & Security:** Auth0/Okta, OAuth 2.0, JWT, OIDC, OWASP, SOC 2 remediation,
 HIPAA/PHI handling
 
 **Experimentation & Analytics:** GrowthBook (with Google Analytics and BigQuery), CloudBees Feature Management, Google
@@ -71,10 +71,11 @@ September 2023 – July 2026 · Remote · Reported to the CTO
 
 #### AI strategy and agents
 
-- Led the AI strategy and implementation: a customer-facing agent on the TrustRadius
-  B2B software review site, built in Python on Google ADK, that summarized verified
-  reviews in real time to answer buyers' questions, with pricing benchmarks,
-  feature analysis, and reviewer takeaways.
+- Led the AI strategy and implementation: a customer-facing two-agent workflow on
+  the TrustRadius B2B software review site, built in Python on Google ADK. One
+  agent summarized the most relevant verified reviews and a second formatted and
+  presented them in real time, with pricing benchmarks, feature analysis, and
+  reviewer takeaways.
 - Wrote the MCP server in NestJS/TypeScript that exposed platform data and tools
   to that agent as a versioned, independently deployable service.
 - Built against the Claude and OpenAI model APIs directly, and with Google ADK,
@@ -111,6 +112,9 @@ September 2023 – July 2026 · Remote · Reported to the CTO
 - Designed phase-gated workflows with human checkpoints: a read-only research
   phase that structurally cannot edit source, findings persisted as durable notes,
   and open questions resolved before implementation begins.
+- Ran that tooling as a multi-agent workflow: a lead agent delegates to subagents
+  per phase (research, implement, test, review), each with its own tool
+  allowlist. Developers went from one feature at a time to about 3–4 in parallel.
 - Designed a just-in-time context system gated on phase, domain, service presence,
   and per-subagent tool allowlists, which carries a compiled routing table instead
   of the standards themselves. Deterministic phase-entry gating loaded the right
@@ -181,7 +185,7 @@ September 2023 – July 2026 · Remote · Reported to the CTO
 
 #### Identity, reliability, and governance
 
-- Contributed to the migration off home-grown auth onto Auth0 for OAuth/JWT across
+- Contributed to the migration off home-grown auth onto Auth0 for OAuth 2.0/JWT across
   four applications and two subdomains with no disruption to signed-in users;
   integrated LinkedIn as an OIDC identity provider.
 - Served in the Opsgenie on-call rotation; built outage runbooks; took turns
@@ -226,7 +230,7 @@ January 2021 – September 2023 · Seattle, WA · Reported to the VP of Platform
   and CommonJS builds, composed at runtime through Feature Hub.
 - Ran Apollo Client as the UI's normalized cache, with per-type freshness and
   eviction policies for the types the defaults handled badly.
-- Secured embedded surfaces with OAuth and encrypted JWTs under HIPAA and PHI
+- Secured embedded surfaces with OAuth 2.0 and encrypted JWTs under HIPAA and PHI
   handling constraints.
 - Owned the foundational frontend and API decisions that became b.well's UI
   patterns: the component library, the micro-frontend libraries, feature flagging
@@ -234,6 +238,9 @@ January 2021 – September 2023 · Seattle, WA · Reported to the VP of Platform
 - Directed GraphQL/Apollo Federation strategy and domain-driven design for
   configuration services; authored the ADRs; routed micro-frontends with React
   Router loaders and actions and typed the UI with GraphQL Codegen.
+- Integrated MedStar's b.well portal with Epic scheduling over Epic's Open
+  Scheduling HL7 v2 API: ran the investigation, wrote the spec, and owned the
+  mapping between Epic's scheduling data and b.well's model.
 - Consumed FHIR (HL7 R4) resources for interoperability with health systems,
   EHRs, and partner platforms; contributed to b.well's open-source FHIR server
   (Node.js, MongoDB), making its GraphQL API an Apollo Federation subgraph on the
@@ -272,7 +279,7 @@ March 2010 – April 2020 · Bellevue, WA
   business travelers, prior-trip spend) measured on room nights booked and total
   spend; was on the pilot team that first put Expedia's "test-and-learn" program
   into practice, a program that went on to lift bookings 3% and revenue 20–30%.
-- Built and maintained the Hotel Shopping BFF APIs in Java on Spring MVC.
+- Contributed to and helped maintain the Hotel Shopping BFF APIs in Java on Spring MVC.
 - Built Media Solutions ad units as self-contained Web Components (LitElement)
   integrated with Google Ad Manager across high-traffic pages, measuring their
   effect on above-the-fold render and guarding against malicious ad content.
@@ -346,7 +353,8 @@ December 1998 – August 2003 · Seattle, WA
   developer sandbox HG Insights engineers use.
 - Gave each work type its own staged workflow (bug: reproduce, fix, deploy,
   verify), with agents working autonomously and stopping only at
-  human-judgment gates.
+  human-judgment gates. A fresh subagent reviews each diff before the gate, and
+  I run up to 8 features at once with it.
 - Shipped a TypeScript monorepo of CLI, core library, dashboard, MCP server,
   VS Code extension and Claude Code plugin, published to npm with Changesets
   and OIDC trusted publishing. 985 commits since July 2026.
