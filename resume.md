@@ -17,11 +17,12 @@ Principal software architect with 20+ years building consumer-scale platforms an
 marketplaces, and 15+ years designing and operating large-scale distributed
 systems, 10+ of them cloud-native. Recent work is production AI: a customer-facing
 agent and the MCP server behind it, a context management system for coding
-agents, and the adversarial eval harness and cost instrumentation that tuned and
-tracked them. Before that, frontend architecture and performance on large React
-sites, federated GraphQL design, and Kubernetes capacity work. Combines backend
-and scalability depth with a focus on user behavior, using experimentation and
-analytics to drive product outcomes.
+agents that took developers from one feature at a time to about 3–4 in parallel,
+and the adversarial eval harness and cost instrumentation that tuned and tracked
+them. Before that, frontend architecture and performance on large React sites,
+federated GraphQL design, and Kubernetes capacity work that carried a platform
+through 17× normal traffic. Pairs backend and scalability depth with attention
+to user behavior, using experimentation and analytics to drive product outcomes.
 
 ## Technical Skills
 
@@ -34,8 +35,7 @@ agent tracing and cost instrumentation, Cline, opencode, aider
 
 **Backend & API:** Node.js, NestJS, Express, Apollo Federation, REST, domain-driven
 design, onion architecture, Prisma, TypeORM, Spring MVC, Spring Boot, Spring Data JPA,
-C#/.NET,
-BullMQ/Kue
+.NET, BullMQ/Kue
 
 **Frontend:** React, Next.js (SSR), React Native, React Router loaders and actions,
 Web Components (LitElement/lit-html), Apollo Client, Redux, MobX, Radix, GraphQL Codegen,
@@ -57,7 +57,7 @@ Google Cloud Logging, Opsgenie on-call, runbooks, postmortems
 **Identity & Security:** Auth0/Okta, OAuth 2.0, JWT, OIDC, OWASP, SOC 2 remediation,
 HIPAA/PHI handling
 
-**Experimentation & Analytics:** GrowthBook (with Google Analytics and BigQuery), CloudBees Feature Management, Google
+**Experimentation & Analytics:** GrowthBook, CloudBees Feature Management, Google
 Analytics, Google Tag Manager, Google Ad Manager, Conductor, SEO split testing
 
 **Testing:** Jest, Mocha, JUnit, Cypress, Playwright, Nightwatch, Selenium,
@@ -83,8 +83,8 @@ September 2023 – July 2026 · Remote · Reported to the CTO
   and the Agent SDK for internal automation.
 - Designed retrieval and grounding on Typesense over the review corpus, one index
   serving both the product search and the AI workflows.
-- Wrote the prompts for and managed the automated code-review agents, reviewing
-  every change for security, maintainability, and correctness.
+- Wrote the prompts for and managed the automated code-review agents, which
+  reviewed every change for security, maintainability, and correctness.
 
 #### Agent evaluation and production operations
 
@@ -132,9 +132,9 @@ September 2023 – July 2026 · Remote · Reported to the CTO
   thundering-herd bot spikes from email campaigns; after tuning Helm autoscaling,
   MongoDB indexes, Redis caching, edge caching, and circuit breakers, the platform
   absorbed 17× normal traffic. MongoDB request capacity rose 10×.
-- The Next.js migration below, plus Postgres and MongoDB query tuning behind
-  every GraphQL subgraph, cut the worst page type, Product Comparison, from about
-  10s to under 4s average load.
+- Cut the worst page type, Product Comparison, from about 10s to under 4s
+  average load by tuning Postgres and MongoDB queries behind every GraphQL
+  subgraph alongside the Next.js migration.
 - Introduced Typesense as the search layer, moving query pressure off MongoDB;
   ran Airflow for ETL including the Typesense index builds.
 
@@ -199,7 +199,7 @@ September 2023 – July 2026 · Remote · Reported to the CTO
   kill switches and percentage ramps to shrink the blast radius of production
   issues; ramped the same way at b.well (CloudBees) and Expedia.
 - Released to production multiple times a day as each feature completed.
-- Shared remediation of SOC 2 and penetration-test findings; reviewed the Kue to
+- Shared in the remediation of SOC 2 and penetration-test findings; reviewed the Kue to
   BullMQ job-queue migration driven by a SOC 2 obligation.
 - Facilitated monthly architecture forums, weekly domain-driven design sessions,
   weekly innersource check-ins on the shared UI library, and group code-review
@@ -209,8 +209,9 @@ September 2023 – July 2026 · Remote · Reported to the CTO
 
 - Engineered a multi-feature developer sandbox, first in Python and later a
   TypeScript CLI, on templated Docker Compose with a hybrid local/remote topology:
-  environment setup fell from 2–3 days to about 30 minutes, local footprint from
-  ~10 containers to 1–3, and time-to-first-contribution by 5×.
+  environment setup fell from 2–3 days to about 30 minutes and local footprint
+  from ~10 containers to 1–3, and new engineers reached a first contribution 5×
+  faster.
 - Packaged the sandbox with skills connecting agents to Jira, GitHub, and Slack;
   partnered with Sales, Marketing, Support, and Research Ops to map workflows and
   trained non-engineering users on the AI tools delivered.
@@ -224,8 +225,8 @@ January 2021 – September 2023 · Seattle, WA · Reported to the VP of Platform
   Android host apps from a single codebase, and composed them as micro-frontends
   with Feature Hub.
 - UI lead architect for the b.well experience embedded in the Walgreens mobile
-  app. Its first release shipped with bundle bloat that was only caught in
-  production, so added build-system checks to stop it recurring.
+  app. When the first release shipped with bundle bloat caught only in
+  production, the team added build-system checks so it could not recur.
 - Packaged the shared UI and micro-frontend libraries with Rollup and tsup as ESM
   and CommonJS builds, composed at runtime through Feature Hub.
 - Ran Apollo Client as the UI's normalized cache, with per-type freshness and
@@ -288,11 +289,11 @@ March 2010 – April 2020 · Bellevue, WA
   ran on.
 - Contributed to the frontend redesign into a PWA on React, MobX, and TypeScript,
   including fixes for SSR hydration and serialization mismatches. Worked under
-  automated bundle size budgets that made the developer split a bundle once it
-  hit its threshold.
+  automated bundle size budgets that forced a split once a bundle hit its
+  threshold.
 - Co-led an internal developer education program teaching structured web
   development to about 20 interns and junior engineers.
-- Drove automated testing practices (unit, BDD, UI); advocated WCAG and OWASP
+- Drove automated testing practices (unit, BDD, UI); brought WCAG and OWASP
   practices into development and review; served in the Opsgenie on-call rotation
   using Splunk for triage.
 
@@ -303,13 +304,6 @@ March 2010 – April 2020 · Bellevue, WA
 - Built, hosted, and maintained Drupal/LAMP websites for local small businesses,
   including Drupal 6 to 7 migrations and MySQL administration.
 - Built one client application on Spring Boot with Spring Data JPA.
-
-### Amdocs — Software Engineer
-
-February 2010 – March 2010 · Seattle, WA
-
-- Developed account and permissions management UI with Google Web Toolkit on
-  WebLogic, using Spring, Maven, JUnit, and Ext JS in a large Scrum team.
 
 ### LRN — Senior Software Engineer
 
@@ -353,8 +347,8 @@ December 1998 – August 2003 · Seattle, WA
   developer sandbox HG Insights engineers use.
 - Gave each work type its own staged workflow (bug: reproduce, fix, deploy,
   verify), with agents working autonomously and stopping only at
-  human-judgment gates. A fresh subagent reviews each diff before the gate, and
-  I run up to 8 features at once with it.
+  human-judgment gates. A fresh subagent reviews each diff before the gate.
+  Used personally to run up to 8 features at once.
 - Shipped a TypeScript monorepo of CLI, core library, dashboard, MCP server,
   VS Code extension and Claude Code plugin, published to npm with Changesets
   and OIDC trusted publishing. 985 commits since July 2026.
